@@ -28,7 +28,7 @@ class PostsController extends AppController {
                 $this->Flash->success(__('Su post a sido guardado.'));
                 return $this->redirect(array('action' => 'index'));
             }
-            $this->Flash->error(__('Unable to add your post.'));
+            $this->Flash->error(__('No se ha podido crear su post.'));
         }
     }
 
@@ -45,7 +45,7 @@ class PostsController extends AppController {
         if ($this->request->is(array('post', 'put'))) {
             $this->Post->id = $id;
             if ($this->Post->save($this->request->data)) {
-                $this->Flash->success(__('Su post a sido actualizado.'));
+                $this->Flash->success(__('Su post ha sido actualizado.'));
                 return $this->redirect(array('action' => 'index'));
             }
             $this->Flash->error(__('Hubo un error al actualizar su post.'));
@@ -64,7 +64,7 @@ class PostsController extends AppController {
     
         if ($this->Post->delete($id)) {
             $this->Flash->success(
-                __('El post con id: %s a sido eliminado.', h($id))
+                __('El post con id: %s ha sido eliminado.', h($id))
             );
         } else {
             $this->Flash->error(
