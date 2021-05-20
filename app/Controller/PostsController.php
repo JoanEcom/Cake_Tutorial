@@ -13,7 +13,6 @@ class PostsController extends AppController {
         if (!$id) {
             throw new NotFoundException(__('Post invalido'));
         }
-
         $post = $this->Post->findById($id);
         if (!$post) {
             throw new NotFoundException(__('Post invalido'));
@@ -23,6 +22,7 @@ class PostsController extends AppController {
 
     public function add() {
         if ($this->request->is('post')) {
+            $this->request->data['Post']['tags'] = json_encode($this->request->data['Post']['tags']);
             $this->Post->create();
             if ($this->Post->save($this->request->data)) {
                 $this->Flash->success(__('Su post a sido guardado.'));

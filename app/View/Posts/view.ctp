@@ -5,6 +5,8 @@
 
 <p><?php echo h($post['Post']['body']); ?></p>
 
+<p><small><?php echo $post['Post']['tags']; ?></small></p>
+
 <hr>
 
 <h3 style="margin-top: 40px;">Agregar Comentario</h3>
